@@ -570,7 +570,9 @@ function JSgCalc (element){
 			//dump(this.lines[i].equation);
 			//try {
 			    var equation = this.lines[i].equation;
-			    this.drawEquation(equation, this.lines[i].color, 3);
+				if (this.lines[i].visible){
+			    	this.drawEquation(equation, this.lines[i].color, 3);
+				}
 			    /*
 			} catch (e) {
                 console.warn('Error drawing equation "' +

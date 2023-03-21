@@ -110,6 +110,7 @@ function JSgui() {
             jsgcalc.lines.push({
                 equation: $("input", this).val(),
                 color: $(".graph_color_indicator", this).css("backgroundColor"),
+                visible: true
             });
         });
     };
@@ -127,6 +128,7 @@ function JSgui() {
                 jsgcalc.lines.length - 1
             ].equation.replaceAll("x", `(${jsgcalc.lines[0].equation})`),
             color: this.findAvailableColor(),
+            visible: true
         });
         jsgcalc.draw();
         this.refreshInputs();
@@ -192,6 +194,13 @@ function JSgui() {
                     equations[i].equation +
                     '"/></div></div>'
             );
+            $(`#graph_color_indicator_${i}`).click(function(e){
+                jsgcalc.lines[parseInt(e.target.id.split("_")[e.target.id.split("_").length-1])].visible = !jsgcalc.lines[parseInt(e.target.id.split("_")[e.target.id.split("_").length-1])].visible;
+                console.log(jsgcalc.lines);
+                jsgcalc.draw();
+                $("#"+e.target.id).toggleClass("disabled-equation");
+
+            });
             $("#graph_color_indicator_" + i).css(
                 "backgroundColor",
                 equations[i].color
