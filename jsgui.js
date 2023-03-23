@@ -172,8 +172,6 @@ function JSgui() {
         jsgcalc.lines = [jsgcalc.lines[0]];
         jsgcalc.draw();
         this.refreshInputs();
-
-        console.log("hello");
     };
 
     this.refreshInputs = function () {
