@@ -78,9 +78,9 @@ function JSgCalc (element){
 			this.calccache[equation] = new Object;
 
 		this.ctx.strokeStyle = color;
-		var old_linewidth = this.ctx.linewidth
+		var old_linewidth = this.ctx.lineWidth
 		if(thickness)
-			this.ctx.linewidth = thickness;
+			this.ctx.lineWidth = thickness;
 		this.ctx.beginPath();
 		//We don't want to draw lines that go off the screen too much, so we keep track of how many times we've had
 		//to go off the screen here
@@ -129,7 +129,7 @@ function JSgCalc (element){
 		}
 		this.fillareapath.push([maxxval, this.height - ((-y1) * scale.y)]);
 		this.ctx.stroke();
-		this.ctx.linewidth = old_linewidth
+		this.ctx.lineWidth = old_linewidth
 	};
 
 	this.drawFillArea = function() {
